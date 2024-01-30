@@ -12,6 +12,7 @@ on:
 env:
   ACR_LOGIN_SERVER: "caimagesintegrationstatic${{ github.ref_name == 'main' && 'prod' || github.ref_name }}.azurecr.io"
   NUGET_PWD: ${{ secrets.NUGET_PWD }}
+  NUGET_TOKEN: ${{ secrets.NUGET_PWD }}
 
 permissions:
   id-token: write
@@ -35,6 +36,6 @@ jobs:
 
       - run: az acr login --name ${{ env.ACR_LOGIN_SERVER }}
 
-      - run: docker build --build-arg NUGET_TOKEN=${{ env.NUGET_PWD }} . -t ${{ env.ACR_LOGIN_SERVER }}/api-${{ vars.CA_NAME }}:${{ github.sha }} -f ./Ecco.Integrations.RabbitMq.Producer.Service/Dockerfile
+      - run: docker build . -t ${{ env.ACR_LOGIN_SERVER }}/api-${{ vars.CA_NAME }}:${{ github.sha }} -f ./Ecco.Integrations.RabbitMq.Producer.Service/Dockerfile
 
       - run: docker push ${{ env.ACR_LOGIN_SERVER }}/api-${{ vars.CA_NAME }}:${{ github.sha }}
