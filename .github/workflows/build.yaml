@@ -22,4 +22,4 @@ jobs:
       - name: set_nuget_sourse
         run: dotnet nuget add source https://pkgs.dev.azure.com/ECCODevOps/ECCO-Integration/_packaging/IntAzNuget/nuget/v3/index.json --username dummy --password ${{ secrets.NUGET_PWD }} --store-password-in-clear-text --name tnuget 
          
-      - run: dotnet build --configuration Release integration.services.rabbitmq.producer/Ecco.Integrations.RabbitMq.Producer.Service/Ecco.Integrations.RabbitMq.Producer.Service.csproj
+      - run: dotnet build --configuration Release ./Ecco.Integrations.RabbitMq.Producer.Service/Ecco.Integrations.RabbitMq.Producer.Service.csproj
