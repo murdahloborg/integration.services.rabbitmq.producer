@@ -11,11 +11,12 @@ on:
       
 env:
   ACR_LOGIN_SERVER: "caimagesintegrationstatic${{ github.ref_name == 'main' && 'prod' || github.ref_name }}.azurecr.io"
-  NUGET_PWD: secrets.NUGET_PWD
+  NUGET_PWD: ${{ secrets.NUGET_PWD }}
 
 permissions:
   id-token: write
-  contents: read  
+  contents: read 
+  packages: read 
 
 jobs:
   deploy-infra:
