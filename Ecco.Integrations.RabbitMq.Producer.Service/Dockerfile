@@ -10,6 +10,7 @@ EXPOSE 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
+ARG NUGET_TOKEN
 WORKDIR /src
 COPY ["Ecco.Integrations.RabbitMq.Producer.Service/Ecco.Integrations.RabbitMq.Producer.Service.csproj", "Ecco.Integrations.RabbitMq.Producer.Service/"]
 RUN dotnet new nugetconfig
