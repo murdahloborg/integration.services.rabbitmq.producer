@@ -10,7 +10,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Ecco.Integrations.RabbitMq.Producer.Service/Ecco.Integrations.RabbitMq.Producer.Service.csproj", "Ecco.Integrations.RabbitMq.Producer.Service/"]
-COPY ./nuget.config .
+COPY ./Ecco.Integrations.RabbitMq.Producer.Service/nuget.config .
 RUN dotnet restore "./Ecco.Integrations.RabbitMq.Producer.Service/./Ecco.Integrations.RabbitMq.Producer.Service.csproj"
 
 COPY . .
