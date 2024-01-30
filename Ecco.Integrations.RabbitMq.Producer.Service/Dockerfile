@@ -12,7 +12,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Ecco.Integrations.RabbitMq.Producer.Service/Ecco.Integrations.RabbitMq.Producer.Service.csproj", "Ecco.Integrations.RabbitMq.Producer.Service/"]
-COPY ./Ecco.Integrations.RabbitMq.Producer.Service/nuget.config .
+RUN dotnet new nugetconfig
+RUN dotnet nuget add source https://pkgs.dev.azure.com/ECCODevOps/ECCO-Integration/_packaging/IntAzNuget/nuget/v3/index.json --username dummy --password $NUGET_TOKEN --store-password-in-clear-text --name ecco
 RUN dotnet restore "./Ecco.Integrations.RabbitMq.Producer.Service/./Ecco.Integrations.RabbitMq.Producer.Service.csproj"
 
 COPY . .
