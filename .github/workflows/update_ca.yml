@@ -33,6 +33,8 @@ jobs:
 
       - run: az acr login --name ${{ env.ACR_LOGIN_SERVER }}
 
-      - run: docker build . -t ${{ env.ACR_LOGIN_SERVER }}/api-${{ vars.CA_NAME }}:${{ github.sha }} -f ./Ecco.Integrations.WebService/Dockerfile
+      - run: dotnet nuget add source https://pkgs.dev.azure.com/ECCODevOps/ECCO-Integration/_packaging/IntAzNuget/nuget/v3/index.json --username dummy --password ${{ secrets.NUGET_PWD }} --store-password-in-clear-text --name tnuget 
+      
+      - run: docker build . -t ${{ env.ACR_LOGIN_SERVER }}/api-${{ vars.CA_NAME }}:${{ github.sha }} -f ./Ecco.Integrations.RabbitMq.Producer.Service/Dockerfile
 
       - run: docker push ${{ env.ACR_LOGIN_SERVER }}/api-${{ vars.CA_NAME }}:${{ github.sha }}
