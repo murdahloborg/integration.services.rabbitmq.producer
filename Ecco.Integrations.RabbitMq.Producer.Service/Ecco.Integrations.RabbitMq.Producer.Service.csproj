@@ -7,6 +7,7 @@
     <InvariantGlobalization>true</InvariantGlobalization>
     <UserSecretsId>63364d3f-47f0-44c3-b2ce-bb4365eab431</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileBuildArguments>--build-arg NUGET_TOKEN=$(NUGET_TOKEN)</DockerfileBuildArguments>
   </PropertyGroup>
 
   <ItemGroup>
