@@ -13,7 +13,7 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Ecco.Integrations.RabbitMq.Producer.Service/Ecco.Integrations.RabbitMq.Producer.Service.csproj", "Ecco.Integrations.RabbitMq.Producer.Service/"]
 RUN dotnet new nugetconfig
-RUN dotnet nuget add source https://pkgs.dev.azure.com/ECCODevOps/ECCO-Integration/_packaging/IntAzNuget/nuget/v3/index.json --username dummy --password $NUGET_TOKEN --store-password-in-clear-text --name ecco --configfile nuget.config
+RUN dotnet nuget add source https://pkgs.dev.azure.com/ECCODevOps/ECCO-Integration/_packaging/IntAzNuget/nuget/v3/index.json --username dummy --password $NUGET_TOKEN --name ecco --configfile nuget.config --store-password-in-clear-text 
 RUN dotnet restore "./Ecco.Integrations.RabbitMq.Producer.Service/./Ecco.Integrations.RabbitMq.Producer.Service.csproj"
 
 COPY . .
