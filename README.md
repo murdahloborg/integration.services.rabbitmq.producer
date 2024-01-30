@@ -1,1 +1,1 @@
-# integration.code.template.caimage
+# Integrations Team Rabbitmq producer service image
