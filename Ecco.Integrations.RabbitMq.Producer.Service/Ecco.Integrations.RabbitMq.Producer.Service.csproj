@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="nuget.config1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Ecco.Integrations.RabbitMq" Version="1.0.3" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
   </ItemGroup>
