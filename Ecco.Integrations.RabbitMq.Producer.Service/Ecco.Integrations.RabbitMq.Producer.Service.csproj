@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ecco.Integrations.RabbitMq" Version="1.0.3" />
+    <PackageReference Include="Ecco.Integrations.RabbitMq" Version="1.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
   </ItemGroup>
 
